@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# set -x
+
+launch_rofi() {
+	local rofi_options=(-dmenu -i -lines 3 -p "Launch scrcpy")
+	local launcher=(rofi "${rofi_options[@]}")
+	local menu_options="Default\n"
+	rofi_selection="$(printf "$menu_options" | "${launcher[@]}")"
+}
+
+rofi_selection=""
+launch_rofi
+
+if [[ -n "$rofi_selection" ]]; then
+	if [[ "$rofi_selection" == "Default" ]]; then
+		scrcpy --video-codec=h265 --max-size=1920 --max-fps=60
+	fi
+fi
+
+
