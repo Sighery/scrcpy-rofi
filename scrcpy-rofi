@@ -13,6 +13,6 @@ launch_rofi
 
 if [[ -n "$rofi_selection" ]]; then
 	if [[ "$rofi_selection" == "Default" ]]; then
-		scrcpy --shortcut-mod=lctrl,lalt --no-video --mouse=uhid
+		scrcpy --shortcut-mod=lalt --stay-awake --screen-off-timeout=300 --no-video --mouse=uhid
 	fi
 fi
